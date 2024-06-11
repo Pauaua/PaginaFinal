@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/2.0.8/css/dataTables.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.2/css/buttons.dataTables.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+  <title>Pagina</title>
+
+</head>
+
+<body>
+  <!--NAVBAR-->
+  <nav>
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+    </label>
+    <label class="logo"><img src="images/logo.png"/> Fake Gallery</label>
+    <ul>
+      <li><a class="active" href="index.html">INICIO</a></li>
+      <li><a href="#quienes-somos">QUIENES SOMOS</a></li>
+      <li><a href="#servicios">SERVICIOS</a></li>
+      <li><a href="formulario.html">CONTÁCTANOS</a></li>
+    </ul>
+  </nav>
+  <!--FINAL NAVBAR-->
+
+  <!--INICIO CAROUSEL-->
+  <div class="carousel-section">
+    <div id="carouselExampleCaptions" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img id="carousel-img" src="images/carouseltres.jpg" class="d-block w-100"
+            alt="ocho perritos dibujados en acuarela">
+        </div>
+        <div class="carousel-item">
+          <img id="carousel-img" src="images/carouseldos.png" class="d-block w-100"
+            alt="tres perritos dibujados en acuarela">
+        </div>
+        <div class="carousel-item">
+          <img id="carousel-img" src="images/carouseluno.png" class="d-block w-100" alt="muchos perritos en acuarela">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+  <!--FIN CAROUSEL-->
+
+  <div class="mt-5" id="quienes-somos">
+    <h1 class="shadow rounded title-edit">¿QUIÉNES SOMOS?</h1>
+    <div class="row">
+      <img class="col-sm-4 img-quienes-somos" src="images/fotogaleria.png" alt="galería de arte" />
+      <H4 class="col-sm-8 text-quienes-somos mt-5">Bienvenidos a Galería de Arte <i>Fake</i>, un espacio dedicado a la
+        expresión artística y al descubrimiento de nuevas perspectivas. Nuestra galería no solo ofrece exhibiciones de
+        arte contemporáneo y clásico, sino que también proporciona una plataforma para el crecimiento creativo a través
+        de nuestros talleres especializados. Además, contamos con servicios de asesoría artística, destinados a
+        coleccionistas y entusiastas que buscan orientación experta para sus adquisiciones y proyectos. Te invitamos a
+        explorar y disfrutar de un ambiente donde el arte cobra vida y se comparte en comunidad</H4>
+    </div>
+  </div>
+
+  <!--CARDS DE SERVICIOS-->
+  <div id="servicios" class="mt-5">
+    <h1 class="shadow rounded title-edit">SERVICIOS</h1>
+    <div class="container">
+      <div class="row">
+        <div class="card col-sm-4" style="width: 18rem;">
+          <img src="images/asesorias.jpg" class="card-img-top" alt="anciano enseñando a sus discípulos">
+          <div class="card-body">
+            <h5 class="card-text">ASESORÍAS</h5>
+          </div>
+        </div>
+        <div class="card col-sm-4" style="width: 18rem;">
+          <img src="images/exhibiciones.jpg" class="card-img-top" alt="exhibición artística">
+          <div class="card-body">
+            <h5 class="card-text">EXHIBICIONES</h5>
+          </div>
+        </div>
+        <div class="card col-sm-4" style="width: 18rem;">
+          <img src="images/talleres.jpg" class="card-img-top" alt="personas representando una obra artística">
+          <div class="card-body">
+            <h5 class="card-text">TALLERES</h5>
+          </div>
+        </div>
+      </div>
+      <button onclick="redireccionar()" id="services-button">CONSULTA AQUÍ</button>
+    </div>
+  </div>
+  <!-- INICIO SECCIÓN EXPLORA-->
+  <div id="explora-seccion">
+    <!--TABLA DE ALGO-->
+
+    <div id="proximas-obras" class="tabla-section mt-5">
+      <h1 class="shadow rounded title-edit">PRÓXIMAS FUNCIONES ARTÍSTICAS</h1>
+      <p><i>Los mejores panoramas para mantener tu mente enrriquecida con el arte</i></p>
+      <div class="table-responsive ROUNDED">
+        <table id="agregarObra" class="table table-bordered">
+          <thead>
+            <tr id="fila0">
+              <th style="color: #b4e5a3" scope="col">Título</th>
+              <th style="color: #b4e5a3" scope="col">Artista</th>
+              <th style="color: #b4e5a3" scope="col">Lugar</th>
+              <th style="color: #b4e5a3" scope="col">Desde</th>
+              <th style="color: #b4e5a3" scope="col">Hasta</th>
+              <th style="color: #b4e5a3" scope="col">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="fila1">
+              <th scope="row">Volver a nombrar</th>
+              <td>Eugenia Vargas-Pereira</td>
+              <td>Museo Nacional Bellas Artes</td>
+              <td>24/05/2024</td>
+              <td>22/09/2024</td>
+              <td><button onclick="eliminarFila(this)" class="btn btn-outline-danger">Eliminar</button></td>
+            </tr>
+            <tr id="fila2">
+              <th scope="row">Asir la vida. Mujeres artistas en Chile 1965-1990</th>
+              <td>Colección MNBA</td>
+              <td>Sala Roser Bru, Museo Nacional Bellas Artes</td>
+              <td>31/05/2024</td>
+              <td>29/09/2024</td>
+              <td><button onclick="eliminarFila(this)" class="btn btn-outline-danger">Eliminar</button></td>
+
+            </tr>
+            <tr id="fila3">
+              <th scope="row">Idearios de la mujer y el territorio</th>
+              <td>Fotógrafas de Chile y México</td>
+              <td>Centro Cultural La Moneda</td>
+              <td>19/01/2024</td>
+              <td>28/07/2024</td>
+              <td><button onclick="eliminarFila(this)" class="btn btn-outline-danger">Eliminar</button></td>
+
+            </tr>
+            <tr id="fila4">
+              <th scope="row">La Mujer en el Arte 1975</th>
+              <td>Colección MNBA</td>
+              <td>Ala Norte, Museo Nacional Bellas Artes</td>
+              <td>29/06/2023</td>
+              <td>29/12/2024</td>
+              <td><button onclick="eliminarFila(this)" class="btn btn-outline-danger">Eliminar</button></td>
+
+            </tr>
+            <tr id="fila5">
+              <th scope="row">Miradas sobre el Wallmapu</th>
+              <td>Colección MNBA</td>
+              <td>Ala Norte, Museo Nacional Bellas Artes</td>
+              <td>13/07/2023</td>
+              <td>29/12/2024</td>
+              <td><button onclick="eliminarFila(this)" class="btn btn-outline-danger">Eliminar</button></td>
+
+            </tr>
+          </tbody>
+        </table>
+        <button onclick="agregarFila()" class="btn btn-outline-primary">Agregar</button>
+
+      </div>
+    </div>
+
+
+    <!--INICIO TABLA CON DATA-->
+
+    <div class="mt-5">
+      <h1 class="title-edit shadow rounded">ALIANZA CON CENTRO VETERINARIO DR DINOSAUR</h1>
+      <p><i>Adopta un/a perrito/a y llevate gratis la obra de arte que tu quieras</i></p>
+      <table id="obras">
+        <thead>
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyObras">
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="col">Imagen</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Edad</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </tfoot>
+      </table>
+
+    </div>
+    <!--FIN TABLA CON DATA-->
+  </div>
+  <!--FIN SECCIÓN EXPLORA-->
+  <div class="time-section" id="clock"></div>
+  <button onclick="arriba()" id="topBtn" title="Go to top">Arriba</button>
+ 
+<footer>
+  <h6 id="footer">&copy;2024. Developed by <i>Unicorn Solutions</I></h6>
+</footer>
+
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.min.js"></script>
+<script src="index.js"></script>
+<script src="https://cdn.datatables.net/2.0.8/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/dataTables.buttons.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.dataTables.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.2/js/buttons.print.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    //ajax
+    $.ajax({
+      url: 'https://huachitos.cl/api/animales/tipo/perro',
+      dataType: 'json',
+      success: function (informacion) {
+        //console.log(data)
+        var obrasArte = informacion.data
+        for (var i = 0; i < obrasArte.length; i++) {
+          var fila = ""
+          fila = "<tr><td><img src='" + obrasArte[i].imagen + "' width='50'  height='50'></td><td>" + obrasArte[i].nombre + "</td><td>" + obrasArte[i].edad + "</td><td>" + obrasArte[i].estado + "</td></tr>"
+          console.log(fila)
+          $("#tbodyObras").append(fila)
+
+        }
+        //DATATABLE
+        let mitabla = new DataTable('#obras', {
+          layout: {
+            topStart: {
+              buttons: ['csv', 'excel', 'pdf']
+            }
+          }
+        });
+      }
+      //FIN AJAX
+    })
+  })
+</script>
+
+</html>
